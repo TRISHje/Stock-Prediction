@@ -1,0 +1,2 @@
+
+This is a simple web application built with Streamlit that allows users to predict and visualize stock prices using the Prophet forecasting model. The app fetches historical stock data using the yfinance library and provides forecasts for selected stocks over a user-defined period.
