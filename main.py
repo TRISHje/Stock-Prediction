@@ -36,16 +36,16 @@ st.write(data.tail())
 # Plot raw data
 def plot_raw_data(data):
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name="stock_open"))
-    fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="stock_close"))
+    fig.add_trace(go.Scatter(x=data['date'], y=data['open'], name="stock_open"))
+    fig.add_trace(go.Scatter(x=data['date'], y=data['close'], name="stock_close"))
     fig.layout.update(title_text='Time Series data with Rangeslider', xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
 
 plot_raw_data(data)
 
 # Predict forecast with Prophet.
-df_train = data[['Date', 'Close']]
-df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
+df_train = data[['date', 'close']]
+df_train = df_train.rename(columns={"date": "ds", "close": "y"})
 
 m = Prophet()
 m.fit(df_train)
